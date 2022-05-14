@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { api } from '../services/api';
 import { MovieCard } from './MovieCard';
-import '../styles/content.scss';
 import Header from './Header';
+import '../styles/content.scss';
 
 interface MovieResponse {
   imdbID: string;
@@ -43,7 +43,12 @@ export function Content(props: ContentProps) {
       <main>
         <div className="movies-list">
           {movies.map(movie => (
-            <MovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
+            <MovieCard
+              key={movie.imdbID}
+              title={movie.Title}
+              poster={movie.Poster}
+              runtime={movie.Runtime}
+              rating={movie.Ratings[0].Value} />
           ))}
         </div>
       </main>
